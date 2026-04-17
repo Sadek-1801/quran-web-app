@@ -16,15 +16,15 @@ export function SurahCard({ chapter }: SurahCardProps) {
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between gap-2">
-              <h3 className="font-semibold text-gray-900 group-hover:text-primary transition-colors truncate">
+              <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
                 {chapter.transliteration}
               </h3>
               <span className="text-right text-lg font-amiri text-primary shrink-0" dir="rtl" lang="ar">
                 {chapter.name}
               </span>
             </div>
-            <p className="text-sm text-gray-500 mt-0.5">{chapter.translation}</p>
-            <div className="flex items-center gap-2 mt-1.5 text-xs text-gray-400">
+            <p className="text-sm text-foreground/50 mt-0.5">{chapter.translation}</p>
+            <div className="flex items-center gap-2 mt-1.5 text-xs text-foreground/40">
               <span className="capitalize">{chapter.type}</span>
               <span>&middot;</span>
               <span>{chapter.total_verses} verses</span>

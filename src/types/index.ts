@@ -29,6 +29,7 @@ export interface AppSettings {
   arabicFontSize: number;
   translationFontSize: number;
   translationLang: "en" | "bn";
+  darkMode: boolean;
 }
 
 export interface JuzInfo {

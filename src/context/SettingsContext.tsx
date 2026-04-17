@@ -33,6 +33,8 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
       } catch (e) {
         console.error("Failed to save settings:", e);
       }
+      // Toggle dark class on <html>
+      document.documentElement.classList.toggle("dark", settings.darkMode);
     }
   }, [settings, isLoaded]);
 

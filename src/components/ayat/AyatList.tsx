@@ -47,11 +47,11 @@ export function AyatList({ surahEn, surahBn, currentPage, totalPages }: AyatList
           &larr; All Surahs
         </Link>
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900">{surahEn.transliteration}</h1>
+          <h1 className="text-2xl font-bold text-foreground">{surahEn.transliteration}</h1>
           <p className="text-3xl font-amiri text-primary mt-1" dir="rtl" lang="ar">
             {surahEn.name}
           </p>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-foreground/50 mt-1">
             {surahEn.translation} &middot; {surahEn.total_verses} verses &middot;{" "}
             <span className="capitalize">{surahEn.type}</span>
           </p>
@@ -69,7 +69,7 @@ export function AyatList({ surahEn, surahBn, currentPage, totalPages }: AyatList
 
       {/* Ayah range indicator */}
       {showPagination && (
-        <p className="text-center text-xs text-gray-400 mb-4">
+        <p className="text-center text-xs text-foreground/40 mb-4">
           Ayahs {startIndex + 1}–{endIndex} of {surahEn.total_verses}
         </p>
       )}
@@ -99,7 +99,7 @@ export function AyatList({ surahEn, surahBn, currentPage, totalPages }: AyatList
               <span className="hidden sm:inline">Prev</span>
             </Link>
           ) : (
-            <span className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-gray-300">
+            <span className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-foreground/30">
               <ChevronLeft className="h-4 w-4" />
               <span className="hidden sm:inline">Prev</span>
             </span>
@@ -122,7 +122,7 @@ export function AyatList({ surahEn, surahBn, currentPage, totalPages }: AyatList
               <ChevronRight className="h-4 w-4" />
             </Link>
           ) : (
-            <span className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-gray-300">
+            <span className="flex items-center gap-1 rounded-md px-3 py-2 text-sm text-foreground/30">
               <span className="hidden sm:inline">Next</span>
               <ChevronRight className="h-4 w-4" />
             </span>
@@ -179,7 +179,7 @@ function PageNumbers({
     <div className="flex items-center gap-1">
       {pages.map((p, i) =>
         p === "..." ? (
-          <span key={`ellipsis-${i}`} className="px-1 text-sm text-gray-400">
+          <span key={`ellipsis-${i}`} className="px-1 text-sm text-foreground/40">
             &hellip;
           </span>
         ) : (
@@ -189,7 +189,7 @@ function PageNumbers({
             className={`cursor-pointer min-w-[2rem] rounded-md px-2 py-1.5 text-center text-sm transition-colors ${
               p === currentPage
                 ? "bg-primary text-white font-medium"
-                : "text-gray-600 hover:bg-gray-100 hover:text-primary"
+                : "text-foreground/60 hover:bg-foreground/5 hover:text-primary"
             }`}
           >
             {p}

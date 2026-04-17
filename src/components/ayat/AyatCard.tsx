@@ -33,7 +33,7 @@ export function AyatCard({ verse, verseBn, verseNumber }: AyatCardProps) {
             {verse.text}
           </p>
           <p
-            className={`text-gray-700 leading-relaxed transition-font ${!isLoaded ? "opacity-0" : "opacity-100"}`}
+            className={`text-foreground/70 leading-relaxed transition-font ${!isLoaded ? "opacity-0" : "opacity-100"}`}
             style={{ fontSize: `${settings.translationFontSize}px` }}
           >
             {translation}

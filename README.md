@@ -10,6 +10,7 @@ A Quran web application built with Next.js (App Router), TypeScript, and Tailwin
 - Paginated ayah reading (20 per page)
 - Customizable Arabic fonts (Amiri, Scheherazade New, Noto Naskh Arabic)
 - Adjustable font sizes for Arabic and translation text
+- Dark/light mode toggle (navbar on desktop, settings panel on mobile)
 - Settings persist in localStorage
 - Responsive design (mobile, tablet, desktop)
 - API routes: `/api/surahs`, `/api/surah/[id]`, `/api/search?q=...`

@@ -1,10 +1,11 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { BookOpen, Menu, Search, Settings, X, Loader2 } from "lucide-react";
+import { BookOpen, Menu, Moon, Search, Settings, Sun, X, Loader2 } from "lucide-react";
 import { SettingsPanel } from "@/components/settings/SettingsPanel";
 import { SearchResults } from "@/components/search/SearchResults";
 import { useSearch } from "@/hooks/useSearch";
+import { useSettingsContext } from "@/context/SettingsContext";
 
 interface HeaderProps {
   navOpen: boolean;
@@ -15,6 +16,7 @@ export function Header({ navOpen, onToggleNav }: HeaderProps) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [searchExpanded, setSearchExpanded] = useState(false);
   const { query, setQuery, results, isSearching } = useSearch();
+  const { settings, updateSetting } = useSettingsContext();
 
   const closeSettings = useCallback(() => setSettingsOpen(false), []);
 
@@ -55,19 +57,19 @@ export function Header({ navOpen, onToggleNav }: HeaderProps) {
           {/* Search bar: centered on mobile, right-aligned on desktop */}
           <div className={`relative w-full max-w-[300px] mx-auto sm:mx-4 sm:ml-auto sm:mr-2 ${searchExpanded ? "flex" : "hidden sm:flex"}`}>
             <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/40" />
               <input
                 type="text"
                 placeholder="Search translations..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="w-full rounded-lg border border-border bg-background py-2 pl-10 pr-10 text-sm placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                className="w-full rounded-lg border border-border bg-background text-foreground py-2 pl-10 pr-10 text-sm placeholder:text-foreground/40 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 aria-label="Search the Quran"
               />
               {query && (
                 <button
                   onClick={() => setQuery("")}
-                  className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-foreground/40 hover:text-foreground/60"
                   aria-label="Clear search"
                 >
                   <X className="h-4 w-4" />
@@ -76,7 +78,7 @@ export function Header({ navOpen, onToggleNav }: HeaderProps) {
             </div>
 
             {isSearching && (
-              <div className="absolute inset-x-0 top-full mt-1 rounded-lg border border-border bg-card p-4 shadow-lg z-50 flex items-center justify-center gap-2 text-sm text-gray-500">
+              <div className="absolute inset-x-0 top-full mt-1 rounded-lg border border-border bg-card p-4 shadow-lg z-50 flex items-center justify-center gap-2 text-sm text-foreground/50">
                 <Loader2 className="h-4 w-4 animate-spin" />
                 Searching...
               </div>
@@ -98,21 +100,28 @@ export function Header({ navOpen, onToggleNav }: HeaderProps) {
           <div className="flex items-center gap-1 shrink-0">
             <button
               onClick={() => setSearchExpanded((v) => !v)}
-              className="cursor-pointer sm:hidden rounded-md p-1.5 text-gray-600 hover:bg-gray-100 hover:text-primary transition-colors"
+              className="cursor-pointer sm:hidden rounded-md p-1.5 text-foreground/60 hover:bg-foreground/5 hover:text-primary transition-colors"
               aria-label="Toggle search"
             >
               {searchExpanded ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
             </button>
             <button
+              onClick={() => updateSetting("darkMode", !settings.darkMode)}
+              className="cursor-pointer hidden md:inline-flex rounded-md p-1.5 text-foreground/60 hover:bg-foreground/5 hover:text-primary transition-colors"
+              aria-label={settings.darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {settings.darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+            <button
               onClick={() => setSettingsOpen(true)}
-              className="cursor-pointer rounded-md p-1.5 text-gray-600 hover:bg-gray-100 hover:text-primary transition-colors"
+              className="cursor-pointer rounded-md p-1.5 text-foreground/60 hover:bg-foreground/5 hover:text-primary transition-colors"
               aria-label="Open settings"
             >
               <Settings className="h-4 w-4" />
             </button>
             <button
               onClick={onToggleNav}
-              className="cursor-pointer xl:hidden rounded-md p-1.5 text-gray-600 hover:bg-gray-100 hover:text-primary transition-colors"
+              className="cursor-pointer xl:hidden rounded-md p-1.5 text-foreground/60 hover:bg-foreground/5 hover:text-primary transition-colors"
               aria-label={navOpen ? "Close navigation" : "Open navigation"}
             >
               {navOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -137,7 +146,7 @@ export function Header({ navOpen, onToggleNav }: HeaderProps) {
               <h2 className="text-lg font-semibold">Settings</h2>
               <button
                 onClick={() => setSettingsOpen(false)}
-                className="cursor-pointer rounded-md p-1 hover:bg-gray-100 transition-colors"
+                className="cursor-pointer rounded-md p-1 hover:bg-foreground/5 transition-colors"
                 aria-label="Close settings"
               >
                 <X className="h-5 w-5" />

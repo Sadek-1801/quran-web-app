@@ -7,6 +7,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   arabicFontSize: 28,
   translationFontSize: 16,
   translationLang: "en",
+  darkMode: false,
 };
 
 export const FONT_OPTIONS = [

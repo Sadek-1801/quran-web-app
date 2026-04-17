@@ -39,10 +39,10 @@ export function NavigationSidebar({ chapters, open, onClose }: NavigationSidebar
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-border shrink-0">
-          <span className="text-sm font-medium text-gray-700">Surahs</span>
+          <span className="text-sm font-medium text-foreground/70">Surahs</span>
           <button
             onClick={onClose}
-            className="cursor-pointer xl:hidden p-1 text-gray-400 hover:text-gray-600 transition-colors"
+            className="cursor-pointer xl:hidden p-1 text-foreground/40 hover:text-foreground/60 transition-colors"
             aria-label="Close navigation"
           >
             <X className="h-5 w-5" />
@@ -62,10 +62,10 @@ export function NavigationSidebar({ chapters, open, onClose }: NavigationSidebar
                     className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
                       isActive
                         ? "bg-primary-light text-primary font-medium"
-                        : "text-gray-700 hover:bg-gray-50 hover:text-primary"
+                        : "text-foreground/70 hover:bg-foreground/5 hover:text-primary"
                     }`}
                   >
-                    <span className="w-8 text-center text-xs text-gray-400 shrink-0">
+                    <span className="w-8 text-center text-xs text-foreground/40 shrink-0">
                       {formatSurahNumber(ch.id)}
                     </span>
                     <div className="flex-1 min-w-0">
@@ -75,7 +75,7 @@ export function NavigationSidebar({ chapters, open, onClose }: NavigationSidebar
                           {ch.name}
                         </span>
                       </div>
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-foreground/40">
                         {ch.total_verses} ayahs &middot; <span className="capitalize">{ch.type}</span>
                       </span>
                     </div>
