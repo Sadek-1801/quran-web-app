@@ -13,6 +13,7 @@ A Quran web application built with Next.js (App Router), TypeScript, and Tailwin
 - Verse bookmarking: save any verse, view all bookmarks at `/bookmarks`, click to jump back
 - Smooth page transitions with fade animation on route changes
 - Customizable Arabic fonts (Amiri, Scheherazade New, Noto Naskh Arabic)
+- Compressed SolaimanLipi Bangla fonts for Bangla Translation text
 - Adjustable font sizes for Arabic and translation text
 - Dark/light mode toggle (navbar on desktop, settings panel on mobile)
 - All settings and bookmarks persist in localStorage

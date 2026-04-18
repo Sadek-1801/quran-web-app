@@ -18,9 +18,8 @@ export function AyatCard({ verse, verseBn, verseNumber, surahId, surahName }: Ay
   const { isBookmarked, toggleBookmark } = useBookmarks();
 
   const fontClass = getArabicFontClass(settings.arabicFont);
-  const translation = settings.translationLang === "bn" && verseBn
-    ? verseBn.translation
-    : verse.translation;
+  const isBn = settings.translationLang === "bn" && verseBn;
+  const translation = isBn ? verseBn.translation : verse.translation;
   const bookmarked = isBookmarked(surahId, verseNumber);
 
   return (
@@ -52,8 +51,9 @@ export function AyatCard({ verse, verseBn, verseNumber, surahId, surahName }: Ay
             {verse.text}
           </p>
           <p
-            className={`text-foreground/70 leading-relaxed transition-font ${!isLoaded ? "opacity-0" : "opacity-100"}`}
+            className={`text-foreground/70 leading-relaxed transition-font ${!isLoaded ? "opacity-0" : "opacity-100"} ${isBn ? "font-solaimanlipi" : ""}`}
             style={{ fontSize: `${settings.translationFontSize}px` }}
+            lang={isBn ? "bn" : "en"}
           >
             {translation}
           </p>
