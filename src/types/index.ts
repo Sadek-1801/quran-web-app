@@ -39,6 +39,13 @@ export interface JuzInfo {
   name: string;
 }
 
+export interface Bookmark {
+  surahId: number;
+  surahName: string;
+  verseNumber: number;
+  timestamp: number;
+}
+
 export interface SearchResult {
   surahId: number;
   surahTransliteration: string;

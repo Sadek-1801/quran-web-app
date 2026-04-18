@@ -3,6 +3,7 @@ import { useState, useEffect, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { Header } from "./Header";
 import { NavigationSidebar } from "./NavigationSidebar";
+import { PageTransition } from "./PageTransition";
 import { Footer } from "./Footer";
 import type { ChapterInfo } from "@/types";
 
@@ -33,7 +34,9 @@ export function AppShell({ chapters, children }: AppShellProps) {
           onTabChange={setSidebarTab}
         />
         <div className="flex-1 flex flex-col min-w-0">
-          <div className="flex-1">{children}</div>
+          <div className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </div>
           <Footer />
         </div>
       </div>

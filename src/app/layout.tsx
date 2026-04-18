@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SettingsProvider } from "@/context/SettingsContext";
+import { BookmarkProvider } from "@/context/BookmarkContext";
 import { AppShell } from "@/components/layout/AppShell";
 import { getAllChapters } from "@/lib/quran";
 
@@ -20,9 +21,11 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-bg text-foreground">
         <SettingsProvider>
-          <AppShell chapters={chapters}>
-            {children}
-          </AppShell>
+          <BookmarkProvider>
+            <AppShell chapters={chapters}>
+              {children}
+            </AppShell>
+          </BookmarkProvider>
         </SettingsProvider>
       </body>
     </html>

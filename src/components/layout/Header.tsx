@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { BookOpen, Menu, Moon, Search, Settings, Sun, X, Loader2 } from "lucide-react";
+import { Bookmark, BookOpen, Menu, Moon, Search, Settings, Sun, X, Loader2 } from "lucide-react";
 import { SettingsPanel } from "@/components/settings/SettingsPanel";
 import { SearchResults } from "@/components/search/SearchResults";
 import { useSearch } from "@/hooks/useSearch";
@@ -112,6 +112,13 @@ export function Header({ navOpen, onToggleNav }: HeaderProps) {
             >
               {settings.darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
+            <Link
+              href="/bookmarks"
+              className="rounded-md p-1.5 text-foreground/60 hover:bg-foreground/5 hover:text-accent transition-colors"
+              aria-label="Bookmarks"
+            >
+              <Bookmark className="h-4 w-4" />
+            </Link>
             <button
               onClick={() => setSettingsOpen(true)}
               className="cursor-pointer rounded-md p-1.5 text-foreground/60 hover:bg-foreground/5 hover:text-primary transition-colors"

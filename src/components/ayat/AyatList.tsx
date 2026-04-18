@@ -34,15 +34,16 @@ export function AyatList({ surahEn, surahBn, currentPage, totalPages, scrollToVe
     topRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [currentPage]);
 
-  // Scroll to specific verse (e.g. from Juz navigation)
+  // Scroll to specific verse (e.g. from Juz navigation or bookmark)
   useEffect(() => {
     if (!scrollToVerse) return;
     const timeout = setTimeout(() => {
       const el = document.getElementById(`ayah-${scrollToVerse}`);
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
-        el.classList.add("bg-primary-light");
-        setTimeout(() => el.classList.remove("bg-primary-light"), 2000);
+        el.classList.remove("animate-highlight");
+        void el.offsetWidth;
+        el.classList.add("animate-highlight");
       }
     }, 100);
     return () => clearTimeout(timeout);
@@ -97,6 +98,8 @@ export function AyatList({ surahEn, surahBn, currentPage, totalPages, scrollToVe
             verse={verse}
             verseBn={versesBn?.[i]}
             verseNumber={startIndex + i + 1}
+            surahId={surahEn.id}
+            surahName={surahEn.transliteration}
           />
         ))}
       </div>

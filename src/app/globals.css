@@ -146,3 +146,12 @@ body {
 .animate-scale-in {
   animation: scale-in 0.2s ease-out;
 }
+
+@keyframes highlight-fade {
+  0% { background-color: var(--color-primary-light); }
+  100% { background-color: transparent; }
+}
+
+.animate-highlight {
+  animation: highlight-fade 2s ease-out forwards;
+}
