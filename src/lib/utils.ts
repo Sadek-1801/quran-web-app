@@ -23,3 +23,12 @@ export function formatSurahNumber(num: number): string {
 export function getArabicFontClass(font: "amiri" | "scheherazade" | "noto-naskh"): string {
   return { amiri: "font-amiri", scheherazade: "font-scheherazade", "noto-naskh": "font-noto-naskh" }[font] || "font-amiri";
 }
+
+export function getJuzHref(surahId: number, verseId: number, ayahsPerPage: number): string {
+  const page = Math.ceil(verseId / ayahsPerPage);
+  const params = new URLSearchParams();
+  if (page > 1) params.set("page", String(page));
+  params.set("verse", String(verseId));
+  const qs = params.toString();
+  return `/surah/${surahId}${qs ? `?${qs}` : ""}`;
+}

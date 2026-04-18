@@ -21,7 +21,7 @@ export const FONT_SIZE_RANGE = {
   translation: { min: 12, max: 28, step: 1 },
 } as const;
 
-export const AYAHS_PER_PAGE = 20;
+export const AYAHS_PER_PAGE = 15;
 
 export const TRANSLATION_OPTIONS = [
   { value: "en", label: "English", source: "Saheeh International" },
@@ -37,9 +37,9 @@ export const JUZ_DATA: JuzInfo[] = [
   { juz: 6,  surahId: 4,  verseId: 148, name: "La Yuhibbullah" },
   { juz: 7,  surahId: 5,  verseId: 82,  name: "Wa Iza Samiu" },
   { juz: 8,  surahId: 6,  verseId: 111, name: "Wa Lau Annana" },
-  { juz: 9,  surahId: 7,  verseId: 88,  name: "Qalal Malau" },
+  { juz: 9,  surahId: 7,  verseId: 88,  name: "Qalal Mala'u" },
   { juz: 10, surahId: 8,  verseId: 41,  name: "Wa A'lamu" },
-  { juz: 11, surahId: 9,  verseId: 93,  name: "Ya'tazirun" },
+  { juz: 11, surahId: 9,  verseId: 93,  name: "Ya'tadhirun" },
   { juz: 12, surahId: 11, verseId: 6,   name: "Wa Mamin Dabbah" },
   { juz: 13, surahId: 12, verseId: 53,  name: "Wa Ma Ubarri'u" },
   { juz: 14, surahId: 15, verseId: 1,   name: "Rubama" },
@@ -48,7 +48,7 @@ export const JUZ_DATA: JuzInfo[] = [
   { juz: 17, surahId: 21, verseId: 1,   name: "Iqtaraba" },
   { juz: 18, surahId: 23, verseId: 1,   name: "Qad Aflaha" },
   { juz: 19, surahId: 25, verseId: 21,  name: "Wa Qalallazina" },
-  { juz: 20, surahId: 27, verseId: 56,  name: "A'man Khalaqa" },
+  { juz: 20, surahId: 27, verseId: 56,  name: "Amman Khalaq" },
   { juz: 21, surahId: 29, verseId: 46,  name: "Utlu Ma Uhiya" },
   { juz: 22, surahId: 33, verseId: 31,  name: "Wa Mayyaqnut" },
   { juz: 23, surahId: 36, verseId: 28,  name: "Wa Mali" },
@@ -56,7 +56,7 @@ export const JUZ_DATA: JuzInfo[] = [
   { juz: 25, surahId: 41, verseId: 47,  name: "Ilaihi Yuraddu" },
   { juz: 26, surahId: 46, verseId: 1,   name: "Ha Mim" },
   { juz: 27, surahId: 51, verseId: 31,  name: "Qala Fama" },
-  { juz: 28, surahId: 58, verseId: 1,   name: "Qad Sami Allah" },
+  { juz: 28, surahId: 58, verseId: 1,   name: "Qad Sami'Allah" },
   { juz: 29, surahId: 67, verseId: 1,   name: "Tabarakallazi" },
   { juz: 30, surahId: 78, verseId: 1,   name: "Amma Yatasa'alun" },
 ];

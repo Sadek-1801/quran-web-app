@@ -13,6 +13,7 @@ interface AppShellProps {
 
 export function AppShell({ chapters, children }: AppShellProps) {
   const [navOpen, setNavOpen] = useState(false);
+  const [sidebarTab, setSidebarTab] = useState<"surahs" | "juz">("surahs");
   const pathname = usePathname();
 
   // Close nav on route change (mobile/tablet)
@@ -28,6 +29,8 @@ export function AppShell({ chapters, children }: AppShellProps) {
           chapters={chapters}
           open={navOpen}
           onClose={() => setNavOpen(false)}
+          activeTab={sidebarTab}
+          onTabChange={setSidebarTab}
         />
         <div className="flex-1 flex flex-col min-w-0">
           <div className="flex-1">{children}</div>

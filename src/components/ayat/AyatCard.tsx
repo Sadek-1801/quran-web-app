@@ -18,7 +18,7 @@ export function AyatCard({ verse, verseBn, verseNumber }: AyatCardProps) {
     : verse.translation;
 
   return (
-    <article className="border-b border-border py-6 last:border-b-0">
+    <article id={`ayah-${verseNumber}`} className="border-b border-border py-6 last:border-b-0 scroll-mt-16">
       <div className="flex items-start gap-3">
         <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-light text-primary text-xs font-semibold mt-2">
           {verseNumber}

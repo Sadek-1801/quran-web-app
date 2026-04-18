@@ -23,10 +23,10 @@ export default async function SurahPage({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; verse?: string }>;
 }) {
   const { id: idParam } = await params;
-  const { page: pageParam } = await searchParams;
+  const { page: pageParam, verse: verseParam } = await searchParams;
   const surahId = parseInt(idParam, 10);
   if (isNaN(surahId) || surahId < 1 || surahId > 114) notFound();
 
@@ -37,6 +37,7 @@ export default async function SurahPage({
   const totalPages = Math.ceil(surahEn.total_verses / AYAHS_PER_PAGE);
   const rawPage = parseInt(pageParam || "1", 10);
   const currentPage = Math.max(1, Math.min(isNaN(rawPage) ? 1 : rawPage, totalPages));
+  const scrollToVerse = verseParam ? parseInt(verseParam, 10) : undefined;
 
   return (
     <main className="min-h-screen">
@@ -45,6 +46,7 @@ export default async function SurahPage({
         surahBn={surahBn || null}
         currentPage={currentPage}
         totalPages={totalPages}
+        scrollToVerse={scrollToVerse}
       />
     </main>
   );

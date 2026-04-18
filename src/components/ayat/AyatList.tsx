@@ -11,9 +11,10 @@ interface AyatListProps {
   surahBn: Surah | null;
   currentPage: number;
   totalPages: number;
+  scrollToVerse?: number;
 }
 
-export function AyatList({ surahEn, surahBn, currentPage, totalPages }: AyatListProps) {
+export function AyatList({ surahEn, surahBn, currentPage, totalPages, scrollToVerse }: AyatListProps) {
   const topRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
 
@@ -32,6 +33,20 @@ export function AyatList({ surahEn, surahBn, currentPage, totalPages }: AyatList
     }
     topRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [currentPage]);
+
+  // Scroll to specific verse (e.g. from Juz navigation)
+  useEffect(() => {
+    if (!scrollToVerse) return;
+    const timeout = setTimeout(() => {
+      const el = document.getElementById(`ayah-${scrollToVerse}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        el.classList.add("bg-primary-light");
+        setTimeout(() => el.classList.remove("bg-primary-light"), 2000);
+      }
+    }, 100);
+    return () => clearTimeout(timeout);
+  }, [scrollToVerse]);
 
   function pageHref(page: number) {
     return page === 1
