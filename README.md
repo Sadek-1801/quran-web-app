@@ -6,12 +6,16 @@ A Quran web application built with Next.js (App Router), TypeScript, and Tailwin
 
 - All 114 surahs with Arabic text and translations (English & Bengali)
 - Search across translations with highlighted matches
-- Navigation sidebar with Surah and Juz tabs
-- Paginated ayah reading (20 per page)
+- Navigation sidebar with Surah, Juz, and Go To tabs
+- Go To tab: search/select any surah, enter an ayah number, and jump directly to it
+- Juz navigation: all 30 juz with correct starting points (according to current data, unmatched with our Hifz Quran), scrolls to the exact ayah
+- Paginated ayah reading (15 per page)
+- Verse bookmarking: save any verse, view all bookmarks at `/bookmarks`, click to jump back
+- Smooth page transitions with fade animation on route changes
 - Customizable Arabic fonts (Amiri, Scheherazade New, Noto Naskh Arabic)
 - Adjustable font sizes for Arabic and translation text
 - Dark/light mode toggle (navbar on desktop, settings panel on mobile)
-- Settings persist in localStorage
+- All settings and bookmarks persist in localStorage
 - Responsive design (mobile, tablet, desktop)
 - API routes: `/api/surahs`, `/api/surah/[id]`, `/api/search?q=...`
 

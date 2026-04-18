@@ -14,7 +14,7 @@ interface AppShellProps {
 
 export function AppShell({ chapters, children }: AppShellProps) {
   const [navOpen, setNavOpen] = useState(false);
-  const [sidebarTab, setSidebarTab] = useState<"surahs" | "juz">("surahs");
+  const [sidebarTab, setSidebarTab] = useState<"surahs" | "juz" | "goto">("surahs");
   const pathname = usePathname();
 
   // Close nav on route change (mobile/tablet)
